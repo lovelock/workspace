@@ -85,3 +85,30 @@ false and nil are FALSE
 # end
 
 # for i in 1..10 do puts "hello, world" end
+
+# i = 0
+# while i < 5 do
+    # puts i
+    # i += 1
+# end
+
+# i = 10
+# until i < 5 do
+    # puts i
+    # i -= 1
+# end
+
+# i = 0
+# puts i += 1 until i == 5
+#
+#
+
+# ('a'..'z').each {
+    # |x|
+    # ('a'..'z').each {
+        # print x
+    # };
+    # puts
+# }
+#
+
