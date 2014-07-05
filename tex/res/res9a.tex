@@ -1,0 +1,74 @@
+% LaTeX resume using res.cls
+\documentclass[a4paper,margin]{res}
+\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
+\usepackage{newcent}   % uses new century schoolbook postscript font 
+\usepackage{ctex}
+\setlength{\textwidth}{5.1in} % set width of text portion
+
+\begin{document}
+
+% Center the name over the entire width of resume:
+ \moveleft.5\hoffset\centerline{\huge\bf\bfseries\songti{ 王\quad 青\quad 春}}
+% Draw a horizontal line the whole width of resume:
+ \moveleft\hoffset\vbox{\hrule width\resumewidth height 1pt}\smallskip
+% address begins here
+% Again, the address lines must be centered over entire width of resume:
+ \moveleft.5\hoffset\centerline{北京市海淀区学院路37号， 100191}
+ \moveleft.5\hoffset\centerline{frostwong@gmail.com}
+ \moveleft.5\hoffset\centerline{(+86) 18500375324 或 (+86) 15011169178}
+
+\begin{resume}
+ 
+\section{目标职位}  服务器端开发(Python, PHP)/Web前端(HTML5)/桌面端(C++, Qt)
+\section{教育经历} {\sl 工学学士,} 生物工程, 
+                      % \sl will be bold italic in New Century Schoolbook (or
+	              % any postscript font) and just slanted in
+		      %	Computer Modern (default) font
+                北京航空航天大学(预计于2014年6月毕业)
+                
+\section{计算机技能} {\sl 语言 \& 软件:} C, C++, Shell, Python, PHP, Perl, JavaScript; VIM, 									\LaTeX.\\
+                \indent{\sl 操作系统:} {\bf Linux}, Windows. 
+ 
+\section{工作经历}
+						{\sl 软件开发(毕设外派实习)} \hfill 2014年03月- 2014年06月 \\
+                \indent 红京鸟力维(北京)科技有限公司, 
+                开发部, 中关村创业大厦, 北京 
+                \begin{itemize}  \itemsep -2pt %reduce space between items
+                \item  为心脏手术仿真系统开发操作界面(基于Qt/OpenGL).
+                \item  基于Chai3D模型和$\Omega .7$开发模拟心脏手术中的碰撞检测和力触觉反馈算法.       	  \end{itemize} 
+                
+					  {\sl 云平台运维(实习)} \hfill 2013年12月- 2014年01月 \\
+                \indent 文思海辉技术有限公司, 
+                云平台部门, 中关村软件园二期文思海辉大厦, 北京 
+                 \begin{itemize}  \itemsep -2pt %reduce space between items
+                \item  解决{\bf HSCloud}云平台的技术故障(如网络、存储等).
+                \item  研究{\bf OpenStack}组件，为{\bf HSCloud}提供技术支撑. 
+                \end{itemize}
+                
+                {\sl 软件开发} \hfill 2013年02月- 2013年04月 \\
+                \indent 学生处, 北京航空航天大学, 北京
+                \begin{itemize}
+                \item  根据学生处工作需要进行CMS(PHP)的二次开发工作.
+                \item  作为负责人对团队成员进行{\bf Linux}培训.
+                \end{itemize}
+ 
+                {\sl 研究员} \hfill 2012年07月- 2013年03月 \\
+               	\indent 生物力学与力生物学教育部重点实验室, 北航生物与医学工程学院, 北京
+                 \begin{itemize}  \itemsep -2pt %reduce space between items
+                 \item  对常态和病态内皮细胞进行计算机建模，并研究其形态学差异.
+                 \item  发表SCI论文一篇.\footnote{Three-Dimensional Morphometric Comparison of Normal and Apoptotic Endothelial Cells Based on Laser Scanning Confocal Microscopy Observation, Microscopy Research and Technique 76:1154-1162(2013).}
+                 \end{itemize} 
+ 
+\section{社区活动}  \begin{itemize}
+						 \item  申请创建``北京航空航天大学开源社区''，在学生中推广开源技术和思想
+						 \item  定期参加Google北京GDG技术交流活动，学习最新最潮技术
+						 \end{itemize}
+						 
+\section{英语技能}  大学英语六/四级 \quad\quad513/545分
+
+\end{resume}
+\end{document}
+
+
+
+

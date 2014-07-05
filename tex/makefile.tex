@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{ctex}
+\begin{document}
+
+make命令執行时，需要一个Makefile文件以告诉make命令需要怎么样的去编译和链接程序。
+基本规则：
+\begin{enumerate}
+	\item  如果这个工程没有编译过，则所有C文件都要编译并被链接。
+	\item  如果这个工程的某几个C文件被修改，则只编译被修改的C文件，并链接目标程序。
+	\item  如果这个工程的头文件被修改，则需要编译引用了这个头文件的C文件，并链接目标程序。
+\end{enumerate}
+Makefile规则：
+\begin{verbatim}
+target ... : prerequisites ...
+             command
+             ...
+             ...			
+\end{verbatim}
+target是一个目标文件，可以是Object file也可以是可执行文件，还可以是一个标签(Label)。
+prerequisites是要生成target所需要的文件或目标。
+command是make需要执行的命令（任意的Shell命令）
+也就是，target这一个或多个的目标文件依赖于prerequisites中的文件，其生成规则定义在command中。
+再即是，prerequisites中如果有一个以上的文件比target文件新，则command命令就会执行。
+定义好依赖关系后，下一行定义了如何生成目标文件的操作系统命令，一定要以一个Tab键作为开头。make并不关心命令是怎么工作的，它只是执行所定义的命令。
+clean不是一个文件，而是一个动作的名字，像C语言的label一样，其冒号后面没有文件，则make就不会自动去找文件的依赖性，也就不会自动执行其后所定义的命令。要执行其后的命令，就要在make命令后显式的指出这个label的名字。这样就可以在一个Makefile文件中定义不用的编译或是和编译无关的命令，比如程序的打包、备份等等。
+
+\section{工作原理}
+默认的方式下(只输入make)，那么：
+\begin{enumerate}
+\item  make在当前目录下查找Makefile或makefile文件。
+\item  如果找到，就会找到文件中的第一个目标文件，并把这个文件作为最终的目标文件。
+\item  如果目标文件不存在，或是目标文件所依赖的文件的修改时间比目标文件新，则执行后面定义的命令来生成目标文件。
+\item  如果目标文件所依赖的.o文件存在，make会在当前文件中查找.o文件所依赖的文件，如果找到则再根据那一个规则生成.o文件。
+\item  最后一定是源代码文件，于是会make生成.o文件，再用.o文件执行make，生成目标文件。
+\end{enumerate}
+这就是make的依赖性，一层一层的去找文件的依赖关系，直到最后编译出第一个目标文件。
+注意make只解决依赖关系，而不管所定义的命令的错误或编译是否成功。
+\section{使用变量}
+如声明一个变量，OBJECTS,则在引用时可以
+\begin{verbatim}
+OBJECTS = main.o kbd.o command.o display.o \
+          insert.o
+edit: $(OBJECTS)
+	   cc -c edit $(OBJECTS)
+.....
+clean:
+	   rm edit $(OBJECTS)
+\end{verbatim}
+\section{让make自动推导}
+只要make看到一个.o文件，就会把相应的.c文件加到.o文件的依赖中。例如会自动把main.c加到main.o的依赖文件中。于是类似上面的Makefile又可以省略.o和.c文件同名的。
+\section{另类的Makefile}
+
+\section{伪目标}
+.PHONY: clean表示clean是一个伪目标，不成文的规定是clean从来都放在Makefile文件的最后。
+\section{细节}
+Makefile里主要包含了5个东西：显式规则，隐晦规则，变量定义，文件指示和注释。
+\begin{enumerate}
+\item  显式规则：显式规则说明了如何生成一个或多个目标文件文件。由Makefile的书写者显式的指出要生成的文件，文件的依赖文件和生成的命令。
+\item  隐晦规则：由于make有自动推导功能，所以隐晦规则可以允许比较粗糙简略的书写Makefile，这是make所支持的。
+\item  变量的定义：在Makefile中要定义一系列的变量，变量一般都是字符串，类似C语言的宏，当Makefile被执行时，其中的变量都会被扩展到相应的引用位置上。
+\item  文件指示：包括三部分，一个是在一个Makefile中引用另一个Makefile，就像C语言的\#include；另一个是根据某些情况指定Makefile中的有效部分，就像C语言的预编译\#if；另一个是定义一个多行的命令。
+\item  注释：Makefile只有行注释，使用\#作为注释标记。
+\end{enumerate}
+\subsection{文件名}
+默认查找顺序：GNUmakefile,makefile, Makefile用的最多的是Makefile。如果要指定makefile文件，使用-f选项。
+\subsection{引用}
+使用include关键词把别的Makefile包含进来。
+\begin{verbatim}
+include <filename>
+\end{verbatim}
+filename可以是当前操作系统Shell的文件模式（可以包含路径和通配符）。
+\subsection{环境变量MAKEFILES}
+如果当前环境变量中定义了MAKEFILES,那么make会把这个变量中的值做一个类似于include的动作。这个变量的值是其他的Makefile，用空格分隔。但是从这个环境变量中引入的Makefile的目标不回起作用。如果环境变量中的文件发现错误，make也不会理会。
+\subsection{工作方式}
+\begin{enumerate}
+\item  读入所有的Makefile
+\item  读入被include的其他Makefile
+\item  初始化文件中的变量
+\item  推导隐晦规则，并分析所有规则
+\item  为所有的目标文件创建依赖关系链
+\item  根据依赖关系，决定哪些目标需要重新生成
+\item  执行生成命令
+\end{enumerate}
+\subsection{vpath}
+设置文件搜索路径
+VPATH=src:../headers
+即定义了两个路径
+也可以使用vpath关键字（全是小写的，不是环境变量），可以指定不同的文件在不同的搜索目录中。使用方法有三种：
+\begin{enumerate}
+\item  vpath <pattern> <directories>
+为符合模式的文件指定搜索目录
+\item  vpath <pattern>
+清除符合模式的文件搜索目录
+\item  vpath
+清除所有已经被设置好了的文件搜索目录
+\end{enumerate}
+<pattern>需要包含\%字符，表示通配符（零个或多个字符）
+\subsection{伪目标}
+以make clean为例，clean并不是一个目标文件，而只是一个标签。由于伪目标不是文件，所以make无法生成依赖关系和决定是否要执行。只有通过显式的指明这个目标才能让其生效。
+\end{document}
