@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" async=true src="http://ajax.microsoft.com/ajax/jquery/jquery-1.11.1.min.js">
+</script>
+</head>
+<body>
+<script type="text/javascript">
+function getUrlParam(name) {
+		var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null) {
+				return unescape(r[2]);
+		}
+}
+
+var url = "http://www.xxx.com/admin/write-post.php?cide=kjdsdf"
+var dump = getUrlParam('url');
+console.log(dump);
+</script>
+</body>
+</html>
