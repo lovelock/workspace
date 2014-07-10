@@ -1,4 +1,4 @@
-explode: function (delimiter, string, limit) {
+explode = function (delimiter, string, limit) {
     // Splits a string on string separator and return array of components.
     // If limit is positive only limit number of components is returned.
     // If limit is negative all components except the last abs(limit) are returned.
@@ -53,4 +53,4 @@ explode: function (delimiter, string, limit) {
         partA.push(partB);
         return partA;
     }
-},
+}
