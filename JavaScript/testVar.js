@@ -1,5 +1,5 @@
+ // this method is OK, function is not a variable
 /*
- * this method is OK, function is not a variable
  *test();
  *
  *function test() {
