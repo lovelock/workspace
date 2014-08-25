@@ -1,0 +1,82 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', '-g', 'nvm-help' ]
+2 info using npm@1.4.25
+3 info using node@v0.10.31
+4 verbose cache add [ 'nvm-help', null ]
+5 verbose cache add name=undefined spec="nvm-help" args=["nvm-help",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'nvm-help',
+6 verbose parsed url   path: 'nvm-help',
+6 verbose parsed url   href: 'nvm-help' }
+7 silly lockFile 78238fec-nvm-help nvm-help
+8 verbose lock nvm-help /root/.npm/78238fec-nvm-help.lock
+9 silly lockFile 78238fec-nvm-help nvm-help
+10 silly lockFile 78238fec-nvm-help nvm-help
+11 verbose addNamed [ 'nvm-help', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile c77f9b2d-nvm-help nvm-help@
+14 verbose lock nvm-help@ /root/.npm/c77f9b2d-nvm-help.lock
+15 silly addNameRange { name: 'nvm-help', range: '*', hasData: false }
+16 verbose request where is /nvm-help
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 687cfcd1804b04e8
+19 verbose url raw /nvm-help
+20 verbose url resolving [ 'https://registry.npmjs.org/', './nvm-help' ]
+21 verbose url resolved https://registry.npmjs.org/nvm-help
+22 verbose request where is https://registry.npmjs.org/nvm-help
+23 info trying registry request attempt 1 at 11:11:38
+24 http GET https://registry.npmjs.org/nvm-help
+25 http 404 https://registry.npmjs.org/nvm-help
+26 verbose headers { date: 'Sun, 24 Aug 2014 03:11:42 GMT',
+26 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+26 verbose headers   'content-type': 'application/json',
+26 verbose headers   'cache-control': 'max-age=0',
+26 verbose headers   'content-length': '52',
+26 verbose headers   'accept-ranges': 'bytes',
+26 verbose headers   via: '1.1 varnish',
+26 verbose headers   age: '0',
+26 verbose headers   'x-served-by': 'cache-ty68-TYO',
+26 verbose headers   'x-cache': 'MISS',
+26 verbose headers   'x-cache-hits': '0',
+26 verbose headers   'x-timer': 'S1408849902.011295,VS0,VE190',
+26 verbose headers   'keep-alive': 'timeout=10, max=50',
+26 verbose headers   connection: 'Keep-Alive' }
+27 silly registry.get cb [ 404,
+27 silly registry.get   { date: 'Sun, 24 Aug 2014 03:11:42 GMT',
+27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=0',
+27 silly registry.get     'content-length': '52',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     age: '0',
+27 silly registry.get     'x-served-by': 'cache-ty68-TYO',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1408849902.011295,VS0,VE190',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 silly lockFile c77f9b2d-nvm-help nvm-help@
+29 silly lockFile c77f9b2d-nvm-help nvm-help@
+30 error 404 404 Not Found: nvm-help
+30 error 404
+30 error 404 'nvm-help' is not in the npm registry.
+30 error 404 You should bug the author to publish it
+30 error 404
+30 error 404 Note that you can also install from a
+30 error 404 tarball, folder, or http url, or git url.
+31 error System Linux 3.16.1-1-ARCH
+32 error command "/usr/bin/node" "/usr/bin/npm" "install" "-g" "nvm-help"
+33 error cwd /home/frost/code
+34 error node -v v0.10.31
+35 error npm -v 1.4.25
+36 error code E404
+37 verbose exit [ 1, true ]
