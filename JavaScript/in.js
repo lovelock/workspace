@@ -1,4 +1,4 @@
 arr = ['a', 'b'];
 
+console.log(arr.indexOf('a'));
 
-console.log(arr.hasOwnProperty('a'));
