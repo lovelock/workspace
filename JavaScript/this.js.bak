@@ -1,0 +1,6 @@
+function doSomething(){
+	alert(this.navigator);
+	this.value = "I am from the object constructor";
+	document.write(this.value);
+	this.style.backgroundColor = "#55fdad";
+}
