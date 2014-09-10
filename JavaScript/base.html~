@@ -1,0 +1,15 @@
+<html>
+<head>
+<script type="text/javascript">
+// document.write("Hkdfkjslkjf");
+function message()
+{
+	alert("fkskfjsafasf");
+}
+</script>
+</head>
+
+<body onload="message()">
+</body>
+</body>
+</html>
