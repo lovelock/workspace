@@ -1,0 +1,5 @@
+{
+    "require": {
+        "sebastian/money": "1.5.*"
+    }
+}
