@@ -1,4 +1,0 @@
-Vender:Intel Open Source Technology Center
-Renderer:Mesa DRI Intel(R) Haswell Mobile 
-Version:3.0 Mesa 10.1.0
-GLU_version:1.3
