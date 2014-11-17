@@ -1,5 +1,5 @@
 <?php
-function test($ids)
+function test($ids=null)
 {
     if (empty($ids)) {
         $ids = array('a', 'b', 'c');
@@ -9,4 +9,4 @@ function test($ids)
 }
 
 $ids = array(11);
-test($ids);
+test();
